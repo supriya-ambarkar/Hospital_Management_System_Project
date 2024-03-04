@@ -1,0 +1,18 @@
+package com.example.dao;
+
+import java.util.List;
+
+import com.example.entities.Operations;
+
+public interface OperationsDAO {
+
+    Operations saveOperation(Operations operation);
+
+    Operations getOperationById(int id);
+
+    List<Operations> getAllOperations();
+
+    void updateOperation(Operations operations);
+
+    void deleteOperation(int id);
+}
