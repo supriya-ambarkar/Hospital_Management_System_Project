@@ -20,13 +20,10 @@ public class Doctor {
 	String specialization;
 	int contact_no;
 	int experience_yrs;
-	
-	//@ColumnDefault(value = "'A'")
- 	//char status;
 
 	@Column(columnDefinition = "CHAR DEFAULT 'A'")
-    char status;
-	
+	char status;
+
 	// constructors
 
 	public Doctor() {
@@ -118,10 +115,5 @@ public class Doctor {
 				+ ", specialization=" + specialization + ", contact_no=" + contact_no + ", experience_yrs="
 				+ experience_yrs + ", status=" + status + "]";
 	}
-	
-	
-	
 
-	
-	
 }

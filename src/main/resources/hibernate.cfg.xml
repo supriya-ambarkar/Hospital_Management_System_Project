@@ -4,22 +4,22 @@
 
 		<!-- Database connection settings -->
 		<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-		<property name="connection.url">jdbc:mysql://localhost:3306/hospitalmanagementdatabase</property>
+		<property name="connection.url">
+			jdbc:mysql://localhost:3306/hospitalmanagementdatabase</property>
 		<property name="connection.username">root</property>
 		<property name="connection.password">system</property>
 
-		
 
 		<!-- Other Hibernate properties -->
 		<property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.hbm2ddl.auto">update</property>
-		
-		<mapping class="com.hospital.entities.Appointment"/>
+
+		<mapping class="com.hospital.entities.Appointment" />
 		<mapping class="com.hospital.entities.Doctor" />
 		<mapping class="com.hospital.entities.Operations" />
 		<mapping class="com.hospital.entities.Patient" />
-		<mapping class="com.hospital.entities.Test" />
-		
+		<mapping class="com.hospital.entities.TestsInHospital" />
+
 	</session-factory>
 </hibernate-configuration>

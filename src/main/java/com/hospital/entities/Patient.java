@@ -34,9 +34,6 @@ public class Patient {
 	@Column(columnDefinition = "CHAR DEFAULT 'A'")
     char status;
 
-	//@Enumerated(EnumType.STRING)
-	//PatientType patientType; // in patient/out patient
-
 	// doctor many to one
 	@ManyToOne
 	@JoinColumn(name = "doctor_id")
@@ -56,7 +53,6 @@ public class Patient {
 		this.age = age;
 		this.contact_no = contact_no;
 		this.status = status;
-		
 		this.doctor = doctor;
 	}
 
@@ -134,8 +130,6 @@ public class Patient {
 				+ doctor + "]";
 	}
 
-	//public enum PatientType {
-		//INPATIENT, OUTPATIENT
-	//}
+
 
 }

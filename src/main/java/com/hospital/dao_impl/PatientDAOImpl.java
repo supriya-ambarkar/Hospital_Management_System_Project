@@ -18,7 +18,6 @@ public class PatientDAOImpl implements PatientDAO {
 	// 1. save patient details
 	@Override
 	public boolean savePatient(Patient patient) {
-		// Session session = sessionFactory.openSession();
 		Transaction transaction = null;
 		try (Session session = HibernateUtil.getSession()) {
 			session.beginTransaction();
@@ -58,7 +57,7 @@ public class PatientDAOImpl implements PatientDAO {
 	@Override
 	public List<Patient> getAllPatients() {
 		List<Patient> patients = null;
-		// Session session = sessionFactory.openSession();
+
 		try (Session session = HibernateUtil.getSession()) {
 			session.beginTransaction();
 			patients = session.createQuery("FROM Patient", Patient.class).getResultList();
@@ -90,7 +89,6 @@ public class PatientDAOImpl implements PatientDAO {
 				patient.setGender(gender);
 				patient.setAge(age);
 				patient.setContact_no(contact_no);
-			
 
 				// Update the patient
 				session.update(patient);

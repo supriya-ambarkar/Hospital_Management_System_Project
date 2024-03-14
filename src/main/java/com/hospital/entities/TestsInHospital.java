@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import org.hibernate.annotations.ColumnDefault;
 
 @Entity
-public class Test {
+public class TestsInHospital {
 	@Id
 	int test_id;
 	String testName;
@@ -17,7 +17,7 @@ public class Test {
 	String results;
 
 	@Column(columnDefinition = "CHAR DEFAULT 'A'")
-    char status;
+	char status;
 
 	@ManyToOne
 	@JoinColumn(name = "patient_id", nullable = false)
@@ -28,11 +28,11 @@ public class Test {
 	Doctor doctor;
 
 	// constructors
-	public Test() {
+	public TestsInHospital() {
 
 	}
 
-	public Test(int test_id, String testName, String results, char status, Patient patient, Doctor doctor) {
+	public TestsInHospital(int test_id, String testName, String results, char status, Patient patient, Doctor doctor) {
 		super();
 		this.test_id = test_id;
 		this.testName = testName;
@@ -42,7 +42,7 @@ public class Test {
 		this.doctor = doctor;
 	}
 
-	public Test(int test_id, String testName, String results) {
+	public TestsInHospital(int test_id, String testName, String results) {
 		super();
 		this.test_id = test_id;
 		this.testName = testName;

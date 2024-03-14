@@ -10,16 +10,16 @@ import org.hibernate.Transaction;
 import com.hibernate_util.HibernateUtil;
 import com.hospital.dao.TestDAO;
 import com.hospital.entities.Operations;
-import com.hospital.entities.Test;
+import com.hospital.entities.TestsInHospital;
 
 public class TestDAOImpl implements TestDAO {
 	// 1. save
 	@Override
-	public boolean saveTest(Test test) {
+	public boolean saveTest(TestsInHospital testsInHospital) {
 
 		try (Session session = HibernateUtil.getSession()) {
 			session.beginTransaction();
-			session.save(test);
+			session.save(testsInHospital);
 			session.getTransaction().commit();
 			return true;
 		} catch (HibernateException e) {
@@ -32,13 +32,13 @@ public class TestDAOImpl implements TestDAO {
 
 	// 2. get by id
 	@Override
-	public Test getTestById(int id) {
+	public TestsInHospital getTestById(int id) {
 		try (Session session = HibernateUtil.getSession()) {
 			session.beginTransaction();
-			Test test = session.get(Test.class, id);
+			TestsInHospital testsInHospital = session.get(TestsInHospital.class, id);
 			session.getTransaction().commit();
 			System.out.println("Test details retrieved successfully.");
-			return test;
+			return testsInHospital;
 		} catch (HibernateException e) {
 			System.out.println("Hibernate Exception is : " + e);
 		} catch (Exception e) {
@@ -49,14 +49,14 @@ public class TestDAOImpl implements TestDAO {
 
 	// 3. get all
 	@Override
-	public List<Test> getAllTests() {
-		List<Test> tests = null;
+	public List<TestsInHospital> getAllTests() {
+		List<TestsInHospital> testsInHospitals = null;
 		try (Session session = HibernateUtil.getSession()) {
 			session.beginTransaction();
-			tests = session.createQuery("FROM Test", Test.class).getResultList();
+			testsInHospitals = session.createQuery("FROM TestsInHospital", TestsInHospital.class).getResultList();
 			session.getTransaction().commit();
 			System.out.println("All Tests retrieved successfully.");
-			return tests;
+			return testsInHospitals;
 		} catch (HibernateException e) {
 			System.out.println("Hibernate Exception is : " + e);
 		} catch (Exception e) {
@@ -72,14 +72,14 @@ public class TestDAOImpl implements TestDAO {
 	public boolean updateTest(int test_id, String testName, String results) {
 
 		try (Session session = HibernateUtil.getSession()) {
-			Test test = session.load(Test.class, test_id);
+			TestsInHospital testsInHospital = session.load(TestsInHospital.class, test_id);
 			session.beginTransaction();
 
-			if (test != null) {
-				test.setTestName(testName);
-				test.setResults(results);
+			if (testsInHospital != null) {
+				testsInHospital.setTestName(testName);
+				testsInHospital.setResults(results);
 
-				session.update(test);
+				session.update(testsInHospital);
 				session.getTransaction().commit();
 				System.out.println("Test with ID " + test_id + " updated successfully.");
 				return true;
@@ -101,13 +101,13 @@ public class TestDAOImpl implements TestDAO {
 
 		try (Session session = HibernateUtil.getSession()) {
 			
-			Test test = session.get(Test.class, id);
+			TestsInHospital testsInHospital = session.get(TestsInHospital.class, id);
 			session.beginTransaction();
 			// Check if patient exists before deleting
-			if (test != null) {
+			if (testsInHospital != null) {
 				// Delete the patient
-				test.setStatus('I');
-				session.saveOrUpdate(test);
+				testsInHospital.setStatus('I');
+				session.saveOrUpdate(testsInHospital);
 				session.getTransaction().commit();
 				System.out.println("test id "+ id+ " deleted successfully.");
 				return true;

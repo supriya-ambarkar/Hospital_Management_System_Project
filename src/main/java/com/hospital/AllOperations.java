@@ -16,7 +16,7 @@ import com.hospital.entities.Appointment;
 import com.hospital.entities.Doctor;
 import com.hospital.entities.Operations;
 import com.hospital.entities.Patient;
-import com.hospital.entities.Test;
+import com.hospital.entities.TestsInHospital;
 import com.hospital.service.AppointmentService;
 import com.hospital.service.DoctorService;
 import com.hospital.service.OperationsService;
@@ -44,7 +44,6 @@ public class AllOperations {
 		int entityId = scanner.nextInt();
 		return null;
 	}
-	
 
 	public static Appointment appointmentInputs() {
 		scanner.nextLine();
@@ -54,24 +53,21 @@ public class AllOperations {
 		System.out.println("Enter appointment date (YYYY-MM-DD): ");
 		scanner.nextLine();
 		String date = scanner.nextLine();
-		
 
 		System.out.println("Enter appointment description: ");
 		String reason = scanner.nextLine();
 
-		//Patient patient = getEntityById(scanner, "patient");
+		// Patient patient = getEntityById(scanner, "patient");
 		System.out.println("Enter patient id : ");
 		int patient_id = scanner.nextInt();
 		Patient patient2 = patientService.getPatientById(patient_id);
-		
-		//Doctor doctor = getEntityById(scanner, "doctor");
+
+		// Doctor doctor = getEntityById(scanner, "doctor");
 		System.out.println("Enter doctor id : ");
 		int doctor_id = scanner.nextInt();
 		Doctor doctor = doctorService.findDoctorById(doctor_id);
-		//System.out.println();
-		
 
-		return new Appointment(appointmentId, date, reason,'A', doctor, patient2);
+		return new Appointment(appointmentId, date, reason, 'A', doctor, patient2);
 	}
 
 	// 2. doctor inputs
@@ -85,9 +81,8 @@ public class AllOperations {
 		System.out.println("Enter doctor's name: ");
 		scanner.nextLine();
 		String name = scanner.nextLine();
-		
+
 		System.out.println("Enter doctor's working hours (e.g., 9AM-5PM): ");
-		//scanner.nextLine();
 		String workingHours = scanner.nextLine();
 
 		System.out.println("Enter doctor's specialization (e.g., Cardiology, ENT): ");
@@ -108,17 +103,10 @@ public class AllOperations {
 			scanner.nextLine();
 		}
 
-		//System.out.println("Enter the status");
-		//char status = scanner.next().charAt(0);
-		
-		
-		
-		return new Doctor(doctorId, name, workingHours, specialization, contact_no, experienceYears,'A');
+		return new Doctor(doctorId, name, workingHours, specialization, contact_no, experienceYears, 'A');
 
 	}
 
-	
-	
 	// 3. operations input
 
 	public static Operations operationsInputs() {
@@ -132,8 +120,6 @@ public class AllOperations {
 		System.out.println("Enter admission date (YYYY-MM-DD format): ");
 		scanner.nextLine();
 		String admissionDate = scanner.nextLine();
-		
-		// Date admissionDate = parseDate(admissionDateString);
 
 		// Allotted Room
 		System.out.println("Enter allotted room number: ");
@@ -143,36 +129,21 @@ public class AllOperations {
 		System.out.println("Enter reason for admission: ");
 		scanner.nextLine();
 		String admission_reason = scanner.nextLine();
-		
 
 		// Discharge Date
-		System.out.println("Enter discharge date (YYYY-MM-DD format) (optional, press Enter to skip): ");
+		System.out.println("Enter discharge date (YYYY-MM-DD format): ");
 		String dischargeDate = scanner.nextLine();
-		//scanner.nextLine();
-		
-		// patient
-		
-		//Patient patient = getEntityById(scanner, "patient");
-		
+
 		System.out.println("Enter patient id : ");
 		int patient_id = scanner.nextInt();
 		Patient patient2 = patientService.getPatientById(patient_id);
-		
-		return new Operations(admission_id, admissionDate, allotted_room, admission_reason, dischargeDate, patient2, 'A');
-	}
 
-	private static Date parseDate(String dateString) {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		try {
-			return (Date) sdf.parse(dateString);
-		} catch (ParseException e) {
-			System.out.println("Invalid date format. Please enter date in YYYY-MM-DD format.");
-			return null;
-		}
+		return new Operations(admission_id, admissionDate, allotted_room, admission_reason, dischargeDate, patient2,
+				'A');
 	}
 
 	// 4. patient inputs
-	
+
 	public static Patient patientInputs() {
 		scanner.nextLine();
 		System.out.println("Enter patient ID: ");
@@ -181,38 +152,27 @@ public class AllOperations {
 		System.out.println("Enter patient name: ");
 		scanner.nextLine();
 		String name = scanner.nextLine();
-		System.out.println(name);
-		
 
 		System.out.println("Enter patient gender (M/F): ");
 		String gender = scanner.nextLine().toUpperCase();
-		
+
 		System.out.println("Enter patient age: ");
 		int age = scanner.nextInt();
 
 		System.out.println("Enter patient contact number: ");
 		int contact_no = scanner.nextInt();
-	
-		
-		// get doctor input
-		
-	//	Doctor doctor = getEntityById(scanner, "doctor");
+
 		System.out.println("Enter doctor id : ");
 		int doctor_id = scanner.nextInt();
 		Doctor doctor = doctorService.findDoctorById(doctor_id);
 		System.out.println();
-		
-		
+
 		return new Patient(patient_id, name, gender, age, contact_no, 'A', doctor);
-	//	return new Patient(patient_id, name, gender, age, contact_no);
-	
-      //  return new Patient(patient_id, name, gender, age, contact_no, 'A', patientTypeInput, doctor);
-		
 	}
 
 	// 5. test inputs
 
-	public static Test testInputs() {
+	public static TestsInHospital testInputs() {
 		scanner.nextLine();
 
 		System.out.println("Enter test ID: ");
@@ -221,32 +181,21 @@ public class AllOperations {
 		System.out.println("Enter test name: ");
 		scanner.nextLine();
 		String testName = scanner.nextLine();
-		
 
 		System.out.println("Enter test results :  ");
 		String results = scanner.nextLine();
-		
-		// patient input
-		//Patient patient = getEntityById(scanner, "patient");
+
 		System.out.println("Enter patient id : ");
 		int patient_id = scanner.nextInt();
 		Patient patient2 = patientService.getPatientById(patient_id);
-		
-		
-		// doctor input
-		//Doctor doctor = getEntityById(scanner, "doctor");
 
 		System.out.println("Enter doctor id : ");
 		int doctor_id = scanner.nextInt();
 		Doctor doctor = doctorService.findDoctorById(doctor_id);
-		//System.out.println();
-		
-		
-		return new Test(test_id, testName, results, 'A', patient2, doctor);
+
+		return new TestsInHospital(test_id, testName, results, 'A', patient2, doctor);
 	}
 
-	
-	
 	// 1. Appointment Operations
 
 	public static void AppointmentOperations() {
@@ -269,7 +218,7 @@ public class AllOperations {
 				System.out.println("Enter the patient id you want : ");
 				int id = scanner.nextInt();
 				List<Appointment> appointments = appointmentService.getAppointmentsByPatientId(id);
-				 System.out.println("Appointment using patient id is :" + appointments);
+				System.out.println("Appointment using patient id is :" + appointments);
 				break;
 			case 3:
 				List<Appointment> appointments2 = appointmentService.getAllAppointments();
@@ -281,7 +230,7 @@ public class AllOperations {
 				System.out.println("Enter the doctor id you want : ");
 				int id1 = scanner.nextInt();
 				List<Appointment> appointments3 = appointmentService.getAppointmentsByDoctor(id1);
-				System.out.println("Appointment using doctor id is : "+appointments3);
+				System.out.println("Appointment using doctor id is : " + appointments3);
 				break;
 			case 5:
 				System.out.println("Enter the id you want to update : ");
@@ -373,15 +322,12 @@ public class AllOperations {
 
 				System.out.println("Enter updated Experience in years : ");
 				int experienceYears = scanner.nextInt();
-				
-				
 
 				doctorService.updateDoctorById(doctorId, name, working_hours, specialization, contactNumber,
 						experienceYears);
 				System.out.println("Doctor details updated successfully.");
 				break;
-				
-				
+
 			case 5:
 				System.out.println("Enter doctor ID to delete:");
 				int doctor_Id = scanner.nextInt();
@@ -437,7 +383,7 @@ public class AllOperations {
 				System.out.println("Enter the admission id you want : ");
 				int id = scanner.nextInt();
 				Operations operations2 = operationsService.getOperationById(id);
-				System.out.println("Patient with id "+id+"details are: "+operations2);
+				System.out.println("Patient with id " + id + "details are: " + operations2);
 				break;
 			case 3:
 				List<Operations> operations3 = operationsService.getAllOperations();
@@ -565,20 +511,20 @@ public class AllOperations {
 			int input = scanner.nextInt();
 			switch (input) {
 			case 1:
-				Test test = testInputs();
-				boolean savedEntity = testService.saveTest(test);
+				TestsInHospital testsInHospital = testInputs();
+				boolean savedEntity = testService.saveTest(testsInHospital);
 				System.out.println("Test details saved successfully");
 				break;
 			case 2:
 				System.out.println("Enter test id you want: ");
 				int id = scanner.nextInt();
-				Test test2 = testService.getTestById(id);
-				System.out.println("Test details with id : "+id+ "is " + test2);
+				TestsInHospital test2 = testService.getTestById(id);
+				System.out.println("Test details with id : " + id + "is " + test2);
 				break;
 
 			case 3:
-				List<Test> tests = testService.getAllTests();
-				for (Test test3 : tests) {
+				List<TestsInHospital> testsInHospitals = testService.getAllTests();
+				for (TestsInHospital test3 : testsInHospitals) {
 					System.out.println(test3);
 				}
 				break;

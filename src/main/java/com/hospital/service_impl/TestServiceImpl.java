@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.hospital.dao.TestDAO;
 import com.hospital.dao_impl.TestDAOImpl;
-import com.hospital.entities.Test;
+import com.hospital.entities.TestsInHospital;
 import com.hospital.service.TestService;
 
 public class TestServiceImpl implements TestService {
@@ -12,17 +12,17 @@ public class TestServiceImpl implements TestService {
 	TestDAO testDAO = new TestDAOImpl();
 
 	@Override
-	public boolean saveTest(Test test) {
-		return testDAO.saveTest(test);
+	public boolean saveTest(TestsInHospital testsInHospital) {
+		return testDAO.saveTest(testsInHospital);
 	}
 
 	@Override
-	public Test getTestById(int id) {
+	public TestsInHospital getTestById(int id) {
 		return testDAO.getTestById(id);
 	}
 
 	@Override
-	public List<Test> getAllTests() {
+	public List<TestsInHospital> getAllTests() {
 		return testDAO.getAllTests();
 	}
 

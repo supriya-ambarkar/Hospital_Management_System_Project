@@ -14,7 +14,7 @@ public class DoctorServiceImpl implements DoctorService {
 	@Override
 	public boolean saveDoctor(Doctor doctor) {
 		return doctorDAO.saveDoctor(doctor);
-		
+
 	}
 
 	@Override

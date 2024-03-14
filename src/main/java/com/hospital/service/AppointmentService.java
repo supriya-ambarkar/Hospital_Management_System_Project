@@ -8,7 +8,6 @@ import com.hospital.entities.Patient;
 
 public interface AppointmentService {
 
-
 	boolean saveAppointment(Appointment appointment);
 
 	Appointment getAppointmentById(int appointmentId);
@@ -19,7 +18,8 @@ public interface AppointmentService {
 
 	List<Appointment> getAppointmentsByDoctor(int doctorId);
 
-	boolean updateAppointment(int appointment_id, String appointmentDate, String reason, Doctor doctor, Patient patient);
+	boolean updateAppointment(int appointment_id, String appointmentDate, String reason, Doctor doctor,
+			Patient patient);
 
 	boolean deleteAppointment(int appointmentId);
 

@@ -16,9 +16,9 @@ public class Appointment {
 	int appointment_id;
 	String appointmentDate;
 	String reason;
-	
+
 	@Column(columnDefinition = "CHAR DEFAULT 'A'")
-    char status;
+	char status;
 
 	@ManyToOne
 	@JoinColumn(name = "doctor_id", nullable = false)
@@ -27,9 +27,9 @@ public class Appointment {
 	@ManyToOne
 	@JoinColumn(name = "patient_id", nullable = false)
 	private Patient patient;
-	
+
 	public Appointment() {
-		
+
 	}
 
 	public Appointment(int appointment_id, String appointmentDate, String reason, char status, Doctor doctor,
@@ -49,7 +49,6 @@ public class Appointment {
 		this.appointmentDate = appointmentDate;
 		this.reason = reason;
 	}
-	
 
 	public Appointment(int appointment_id, String appointmentDate, String reason, Doctor doctor, Patient patient) {
 		super();
@@ -113,8 +112,5 @@ public class Appointment {
 		return "Appointment [appointment_id=" + appointment_id + ", appointmentDate=" + appointmentDate + ", reason="
 				+ reason + ", status=" + status + ", doctor=" + doctor + ", patient=" + patient + "]";
 	}
-	
-	
 
-	
 }

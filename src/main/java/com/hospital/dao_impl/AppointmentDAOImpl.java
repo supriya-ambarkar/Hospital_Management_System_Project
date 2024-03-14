@@ -69,22 +69,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 		return appointments;
 	}
 
-	// 6. get appointment by patient id
-	/*
-	 * @Override public List<Appointment> getAppointmentsByPatientId(int patientId)
-	 * {
-	 * 
-	 * try (Session session = HibernateUtil.getSession()) {
-	 * session.beginTransaction(); List<Appointment> appointments1 = session
-	 * .createQuery("select d.name as doctorName, t.testName as testName " +
-	 * "from Appointment a " + "join a.doctor d " + "left join a.tests t " +
-	 * "order by a.appointmentDate desc") .list(); // LEFT JOIN is used to include
-	 * appointments without tests
-	 * 
-	 * session.getTransaction().commit(); return appointments1; } catch
-	 * (HibernateException e) { System.out.println(e); } catch (Exception e) {
-	 * System.out.println(e); } return null; }
-	 */
+	// 4.getAppointmentsByPatientId
 
 	@Override
 	public List<Appointment> getAppointmentsByPatientId(int patientId) {
@@ -109,7 +94,7 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 		return null;
 	}
 
-	// 7. get appointment by doctor id
+	// 5. get appointment by doctor id
 	@Override
 	public List<Appointment> getAppointmentsByDoctor(int doctorId) {
 		Transaction transaction = null;
@@ -132,13 +117,11 @@ public class AppointmentDAOImpl implements AppointmentDAO {
 		return null;
 	}
 
-	// 4. update appointment
+	// 6. update appointment
 	@Override
 	public boolean updateAppointment(int appointment_id, String appointmentDate, String reason, Doctor doctor,
 			Patient patient) {
 		Appointment existAppointment = null;
-		// Doctor doctor2 = null;
-		// Patient patient2 = null;
 
 		try (Session session = HibernateUtil.getSession()) {
 			session.beginTransaction();

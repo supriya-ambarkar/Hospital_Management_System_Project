@@ -23,9 +23,9 @@ public class Operations {
 	@ManyToOne
 	@JoinColumn(name = "patient_id", nullable = false)
 	Patient patient;
-	
+
 	@Column(columnDefinition = "CHAR DEFAULT 'A'")
-    char status;
+	char status;
 
 	// constructors
 
@@ -44,8 +44,6 @@ public class Operations {
 		this.patient = patient;
 		this.status = status;
 	}
-
-	
 
 	public Operations(int admission_id, String admissionDate, int alloted_room, String admission_reason,
 			String discharge_date) {
@@ -127,10 +125,5 @@ public class Operations {
 				+ alloted_room + ", admission_reason=" + admission_reason + ", discharge_date=" + discharge_date
 				+ ", patient=" + patient + ", status=" + status + "]";
 	}
-	
-	
-	
-	
-	
 
 }

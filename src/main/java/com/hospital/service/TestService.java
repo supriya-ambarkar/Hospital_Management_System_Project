@@ -2,15 +2,15 @@ package com.hospital.service;
 
 import java.util.List;
 
-import com.hospital.entities.Test;
+import com.hospital.entities.TestsInHospital;
 
 public interface TestService {
-	
-	boolean saveTest(Test test);
 
-	Test getTestById(int id);
+	boolean saveTest(TestsInHospital testsInHospital);
 
-	List<Test> getAllTests();
+	TestsInHospital getTestById(int id);
+
+	List<TestsInHospital> getAllTests();
 
 	boolean updateTest(int test_id, String testName, String results);
 

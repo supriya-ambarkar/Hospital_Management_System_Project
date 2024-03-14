@@ -7,16 +7,14 @@ import com.hospital.entities.Patient;
 
 public interface PatientDAO {
 
-    boolean savePatient(Patient patient);
+	boolean savePatient(Patient patient);
 
-    Patient getPatientById(int patientId);
+	Patient getPatientById(int patientId);
 
-    List<Patient> getAllPatients();
+	List<Patient> getAllPatients();
 
-    boolean updatePatient(int patient_id, String name, String gender, int age, int contact_no);
+	boolean updatePatient(int patient_id, String name, String gender, int age, int contact_no);
 
-    boolean deletePatient(int patientId);
-
+	boolean deletePatient(int patientId);
 
 }
-

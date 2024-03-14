@@ -18,7 +18,8 @@ public interface AppointmentDAO {
 
 	List<Appointment> getAppointmentsByDoctor(int doctorId);
 
-	boolean updateAppointment(int appointment_id, String appointmentDate, String reason, Doctor doctor, Patient patient);
+	boolean updateAppointment(int appointment_id, String appointmentDate, String reason, Doctor doctor,
+			Patient patient);
 
 	boolean deleteAppointment(int appointmentId);
 

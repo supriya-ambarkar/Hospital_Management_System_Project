@@ -33,7 +33,7 @@ public class OperationsDAOImpl implements OperationsDAO {
 		return false;
 	}
 
-	// 2. get by id
+	// 2. get operations by id
 	@Override
 	public Operations getOperationById(int id) {
 		try (Session session = HibernateUtil.getSession()) {
@@ -51,7 +51,7 @@ public class OperationsDAOImpl implements OperationsDAO {
 		return null;
 	}
 
-	// 3. get all
+	// 3. get all operations
 	@Override
 	public List<Operations> getAllOperations() {
 
@@ -71,7 +71,7 @@ public class OperationsDAOImpl implements OperationsDAO {
 
 	}
 
-	// 4. update
+	// 4. update operations
 
 	@Override
 	public boolean updateOperation(int admission_id, int alloted_room, String admission_reason, String discharge_date) {
@@ -81,7 +81,7 @@ public class OperationsDAOImpl implements OperationsDAO {
 
 			// update
 			if (existOperations != null) {
-				
+
 				existOperations.setAlloted_room(alloted_room);
 				existOperations.setAdmission_reason(admission_reason);
 				existOperations.setDischarge_date(discharge_date);
@@ -102,13 +102,13 @@ public class OperationsDAOImpl implements OperationsDAO {
 		return false;
 	}
 
-	// 5. delete
+	// 5. delete operations
 	@Override
 	public boolean deleteOperation(int id) {
 
 		try (Session session = HibernateUtil.getSession()) {
 			// Get the patient by ID
-			
+
 			Operations operations = session.get(Operations.class, id);
 			session.beginTransaction();
 

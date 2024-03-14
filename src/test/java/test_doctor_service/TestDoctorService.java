@@ -31,11 +31,11 @@ class TestDoctorService {
 		doctorService = new DoctorServiceImpl();
 	}
 
-	/*@Test
+	@Test
 	public void testSaveDoctor() {
-		Doctor doctor = new Doctor(103, "Ramu", "1am-9am", "Dentist", 25678, 3, 'A');
+		Doctor doctor = new Doctor(104, "Ravi", "5am-9am", "Dentist", 89678, 3, 'A');
 		assertTrue(doctorService.saveDoctor(doctor));
-	}*/
+	}
 
 /*	@Test
 	public void testDoctorById() {
@@ -50,7 +50,7 @@ class TestDoctorService {
 		List<Doctor> doctors = doctorService.getAllDoctors();
 		assertTrue(doctors != null && !doctors.isEmpty());
 	}
-	*/
+	
 	
 	 @Test
 	 void testUpdateDoctorById() {

@@ -7,7 +7,7 @@ import com.hospital.entities.Doctor;
 import com.hospital.entities.Patient;
 
 public interface DoctorService {
-	
+
 	boolean saveDoctor(Doctor doctor);
 
 	Doctor findDoctorById(int doctorId);

@@ -23,7 +23,7 @@ public class AppointmentServiceImpl implements AppointmentService {
 	public Appointment getAppointmentById(int appointmentId) {
 		return appointmentDAO.getAppointmentById(appointmentId);
 	}
-	
+
 	@Override
 	public List<Appointment> getAllAppointments() {
 		return appointmentDAO.getAllAppointments();
@@ -40,7 +40,8 @@ public class AppointmentServiceImpl implements AppointmentService {
 	}
 
 	@Override
-	public boolean updateAppointment(int appointment_id, String appointmentDate, String reason, Doctor doctor, Patient patient) {
+	public boolean updateAppointment(int appointment_id, String appointmentDate, String reason, Doctor doctor,
+			Patient patient) {
 		return appointmentDAO.updateAppointment(appointment_id, appointmentDate, reason, doctor, patient);
 	}
 

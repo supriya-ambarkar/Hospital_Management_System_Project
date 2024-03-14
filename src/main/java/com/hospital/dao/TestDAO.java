@@ -3,18 +3,17 @@ package com.hospital.dao;
 import java.util.List;
 
 import com.hospital.entities.Patient;
-import com.hospital.entities.Test;
+import com.hospital.entities.TestsInHospital;
 
 public interface TestDAO {
 
-    boolean saveTest(Test test);
+	boolean saveTest(TestsInHospital testsInHospital);
 
-    Test getTestById(int id);
+	TestsInHospital getTestById(int id);
 
-    List<Test> getAllTests();
+	List<TestsInHospital> getAllTests();
 
-    boolean updateTest(int test_id, String testName, String results);
+	boolean updateTest(int test_id, String testName, String results);
 
-    boolean deleteTest(int id);
+	boolean deleteTest(int id);
 }
-
