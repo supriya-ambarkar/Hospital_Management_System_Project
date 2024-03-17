@@ -7,8 +7,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -34,7 +32,6 @@ public class Patient {
 	@Column(columnDefinition = "CHAR DEFAULT 'A'")
     char status;
 
-	// doctor many to one
 	@ManyToOne
 	@JoinColumn(name = "doctor_id")
 	private Doctor doctor;
