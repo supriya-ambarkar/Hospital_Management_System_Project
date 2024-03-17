@@ -57,12 +57,10 @@ public class AllOperations {
 		System.out.println("Enter appointment description: ");
 		String reason = scanner.nextLine();
 
-		// Patient patient = getEntityById(scanner, "patient");
 		System.out.println("Enter patient id : ");
 		int patient_id = scanner.nextInt();
 		Patient patient2 = patientService.getPatientById(patient_id);
 
-		// Doctor doctor = getEntityById(scanner, "doctor");
 		System.out.println("Enter doctor id : ");
 		int doctor_id = scanner.nextInt();
 		Doctor doctor = doctorService.findDoctorById(doctor_id);
@@ -112,25 +110,20 @@ public class AllOperations {
 	public static Operations operationsInputs() {
 		scanner.nextLine();
 
-		// admission id
 		System.out.println("Enter admission id: ");
 		int admission_id = scanner.nextInt();
 
-		// Admission Date
 		System.out.println("Enter admission date (YYYY-MM-DD format): ");
 		scanner.nextLine();
 		String admissionDate = scanner.nextLine();
 
-		// Allotted Room
 		System.out.println("Enter allotted room number: ");
 		int allotted_room = scanner.nextInt();
 
-		// Admission Reason
 		System.out.println("Enter reason for admission: ");
 		scanner.nextLine();
 		String admission_reason = scanner.nextLine();
 
-		// Discharge Date
 		System.out.println("Enter discharge date (YYYY-MM-DD format): ");
 		String dischargeDate = scanner.nextLine();
 

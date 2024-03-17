@@ -9,8 +9,8 @@ public class MainOperations {
 
 	public static void mainOps() {
 		while (true) {
-			System.out.println("Welcome to Hospital Management System:\n " + "1.Appointment Details\n"
-					+ " 2.Doctor Details\n " + "3.Patient Details \n"  
+			System.out.println("Welcome to Hospital Management System:\n " + "***********************************\n"
+					+ "1.Appointment Details\n" + " 2.Doctor Details\n " + "3.Patient Details \n"
 					+ " 4.Test Details \n 5. Exit\n Enter your choice");
 
 			int input = scanner.nextInt();
@@ -45,10 +45,8 @@ public class MainOperations {
 		}
 	}
 
-
-
 	public static void main(String args[]) {
 		mainOps();
-		
+
 	}
 }
