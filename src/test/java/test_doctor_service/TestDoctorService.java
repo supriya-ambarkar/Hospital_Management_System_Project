@@ -33,7 +33,7 @@ class TestDoctorService {
 
 	@Test
 	public void testSaveDoctor() {
-		Doctor doctor = new Doctor(104, "Ravi", "5am-9am", "Dentist", 89678, 3, 'A');
+		Doctor doctor = new Doctor(105, "Ram", "5am-9am", "Dentist", 89678, 3,'A');
 		assertTrue(doctorService.saveDoctor(doctor));
 	}
 
